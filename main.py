@@ -13,13 +13,13 @@ app = FastAPI()
 
 @app.get("/predict")
 def predict(text):
-    # add model in here
-    model = load_model("model.h5")
-    prediction = model.predict(preprocess_text(text))[0][0]
-    class_label = "badword" if prediction >= 0.56 else "goodword"
-
-    return f"{class_label} {prediction}"
-
+    try:
+        model = load_model("model.h5")
+        prediction = model.predict(preprocess_text(text))[0][0]
+        class_label = "badword" if prediction >= 0.56 else "goodword"
+        return {"class_label": class_label}
+    except:
+        return {"class_label": "error"}
 
 
 
