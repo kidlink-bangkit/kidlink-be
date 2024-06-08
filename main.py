@@ -1,8 +1,9 @@
 from fastapi import FastAPI
 import pandas as pd
-from utils import preprocess_text, download_stopwords
 import ssl
 import nltk
+from tensorflow.keras.models import load_model
+from utils import preprocess_text, download_stopwords
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
@@ -11,15 +12,13 @@ app = FastAPI()
 
 
 @app.get("/predict")
-def predict():
+def predict(text):
     # add model in here
-    model = None
-    prediction = model.predict(preprocess_text("hai"))[0][0]
+    model = load_model("model.h5")
+    prediction = model.predict(preprocess_text(text))[0][0]
     class_label = "badword" if prediction >= 0.56 else "goodword"
 
-    # integrate with firestore
-
-    return {"Hello": "World"}
+    return f"{class_label} {prediction}"
 
 
 

@@ -107,4 +107,3 @@ def download_stopwords():
     if not os.path.exists(os.path.join(nltk.data.find('corpora'), 'stopwords')):
         print("Stopwords resource not found. Downloading...")
         nltk.download('stopwords')
-
