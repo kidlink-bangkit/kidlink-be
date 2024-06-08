@@ -18,7 +18,8 @@ def predict(text):
         prediction = model.predict(preprocess_text(text))[0][0]
         class_label = "badword" if prediction >= 0.56 else "goodword"
         return {"class_label": class_label}
-    except:
+    except Exception as e:
+        print(e)
         return {"class_label": "error"}
 
 
