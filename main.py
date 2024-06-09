@@ -7,15 +7,21 @@ from utils import preprocess_text, download_stopwords
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
-download_stopwords()
+nltk.download("punkt")
+nltk.download("stopwords")
 app = FastAPI()
 
+from pydantic import BaseModel
 
-@app.get("/predict")
-def predict(text):
+
+class TextRequest(BaseModel):
+    text: str
+
+@app.post("/predict")
+def predict(request:TextRequest):
     try:
         model = load_model("model.h5")
-        prediction = model.predict(preprocess_text(text))[0][0]
+        prediction = model.predict(preprocess_text(request.text))[0][0]
         class_label = "badword" if prediction >= 0.56 else "goodword"
         return {"class_label": class_label}
     except Exception as e:
