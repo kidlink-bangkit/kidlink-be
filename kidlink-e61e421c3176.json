@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "kidlink",
+  "private_key_id": "e61e421c3176ca6203194b4de54050cd14faa79b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEugIBADANBgkqhkiG9w0BAQEFAASCBKQwggSgAgEAAoIBAQDfGnN6WX1qI+KM\nNT1CMGK8hcAFIsbXIekoMrSXt1nfjlNo/isNXgsSN5mVrRx14lT6gTnZrfi6wkvi\nUVLRjHsogwxmvbbeau9pIZ0/UE9aD100z2kOabV7OFIJd1L/z7uvV7V5glqmhdmt\n8ksN0xkXocUp0pdsz3wAFLkojmLED9y/CDsSvhruJ31e7RA0PqcIulAT+yk5ehIM\n6ykesz1A7Kzzec6o9NMgHWVB0INP9w40XZ5zhD2NwpLiL38UgtgWYvu5Ag69wHwG\n1ABPREu04BAOce9P9468g6I91wKeljn2Qbk2JHUPN/Qo4Pbrqmh6mmHH2NofIPKL\ngyhRp0LdAgMBAAECgf9MgtxTqE34emURgzCVifNhlaoP3JmQpkU49N9jgsFmLUOL\nxbzQ0TrrsZ4f3DbAzV3PuDZEWiGQ+dTfKl7pyYdj+28uvdIAhAYeWp18L6ysl/Ki\nx+gKtoEzqjOHOLeQ9B28VyNHJqHg40KeEgjngBvIBn288KFnAld8oI+yFSKNsHr+\n8v2sW8j9dr0buxt4fhM4plusZ5NWS2P3Nuwzlz5nTOsMv6UyBPMDAfyKktGjB/U4\nfooFbAkGFmAZgT0cLm/DUl2gHc2axllUyfZrd0lUtxDRQNvnNmjix1YszYn/5jRc\nkkYJz7ikqqsGhrWhCn43RHBXv4K7NTo/x6LMT9ECgYEA/Hk1OjvpciAX47UJ315t\nmbuIYcKdca9/EWhH4+KPoD5GkeNltSjYny2pl98kOyvNfOBAKk4RxlQtfDzdRGvl\nmqVHUW626gLGg1CLppH7oiKqKzXrRzYEVxdFYuXcum1CTAYWzS32wcOSvZtZH6Jl\nuHWugcpIv6XQQJv/P4I33vUCgYEA4jg4wXJp1de2Vz6wDFAqXlLitmbP/3mM0hZl\nKUOPqWBt79i0VbJ8sT2emky25SihcbhWwc05srr7nGdoOhD2YeGlidrE4GtrUCM6\nM2U+MshSaUDpXn1lp7T9Gwej+z1Xyzc7VlB8Rf7JRNRRd/sCS3FsUwT+ZGAQaGQh\nXFyqk0kCgYAX16Z0KmZAVdGLunQFORimlPQrL0LJEqawUSXA2otvuZHWgx/+vK3A\nUoKaigMU520PZuoIVLkO/rIQ8np+1KWpNgSHJyp07PAsRHX7s/uMczOYww3F+s7s\nHpF55nUy0dCZ91U96SJNaBe6eiovd5mdktd5AE5gcts4zsKLD9QQ5QKBgD/ciUEr\nEG+a3tHQU5iWRO+tzGybp5pCcRuZ0OMOPI8fNsnfzkDnC0Zp081RXMxiZPkahftd\n+SzYllE36/eAdF17euToym1kRb4ww6xgp2dkn8cw2PCgy8LFWDJ6PLOfRJqMtAaQ\n4BROcfkpSvpo9OPhWCgzn7EsYVVm9vgA/PJpAoGARvYveRSguFoKeq5oFDAyIZtj\nrhZh5vpV0KNb5TJVz7qSFgarPsPOxZR5bds2Pvim4caSkPDO+3p8eUAx5kEWwjF+\nPp/BvJ40L3EzAU6ZP+PLEYVFtT5fkH9pxeTEhQJZfgOAaB/h1J/UIXydPs8gM/+G\n0gXYTab9b6c27F2oiE8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-g9geo@kidlink.iam.gserviceaccount.com",
+  "client_id": "116027888397825925800",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-g9geo%40kidlink.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

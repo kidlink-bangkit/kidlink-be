@@ -12,6 +12,30 @@ import os
 from nltk.corpus import stopwords
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
+
+
+def get_html(unsafe_words, username, child_email):
+    unsafe_words_text = "unsafe word" if unsafe_words == 1 else "unsafe words"
+
+    return f"""
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pemberitahuan: Kata-kata Tidak Aman Terdeteksi</title>
+    <style>
+        .highlight {{ color: red; }}
+    </style>
+</head>
+<body>
+    <p>Kami berharap anda mendapatkan pesan ini dengan baik. Kami ingin memberitahukan bahwa sistem pemantauan kami telah mendeteksi penggunaan kata-kata tidak aman oleh anak Anda dengan username {username} dan email {child_email}. Ada { "satu" if unsafe_words == 1 else ""} <span class="highlight">{unsafe_words} {unsafe_words_text}</span>.</p>
+</body>
+</html>
+"""
 
 
 
@@ -107,3 +131,40 @@ def download_stopwords():
     if not os.path.exists(os.path.join(nltk.data.find('corpora'), 'stopwords')):
         print("Stopwords resource not found. Downloading...")
         nltk.download('stopwords')
+
+
+def send_mail(receiver,unsafe_count, username, child_email):
+    # Email configuration
+    smtp_server = "smtp.gmail.com"
+    smtp_port = 587
+    sender_email = "elbertmarcellinus@gmail.com"
+    password = "ydyb qmmh wksl qdex"  # For security, use an app password
+
+    # Create the email
+    msg = MIMEMultipart("alternative")
+    msg['From'] = sender_email
+    msg['To'] = receiver
+    msg["Subject"] = "Notification: Unsafe Words Detected"
+    html_content = get_html(unsafe_count, username, child_email)
+    part = MIMEText(html_content, "html")
+    msg.attach(part)
+
+
+    try:
+        # Connect to the server
+        server = smtplib.SMTP(smtp_server, smtp_port)
+        server.starttls()  # Secure the connection
+        server.login(sender_email, password)  # Login to the email account
+
+        # Send the email
+        server.send_message(msg)
+        print("Email sent successfully!")
+
+    except Exception as e:
+        print(f"Failed to send email: {e}")
+
+    finally:
+        # Close the connection
+        server.quit()
+
+
