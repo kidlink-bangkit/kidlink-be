@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime, timedelta
 from fastapi import FastAPI
 import ssl
 import nltk
@@ -44,7 +44,8 @@ def predict(request:TextRequest):
     
 @app.get("/send")
 def send_email_parents():
-    
+    current_time = datetime.now()
+    previous_day_8am = current_time - timedelta(days=1)
     users = db.collection("users").stream()
     chat_rooms = db.collection("chatRooms").stream()
     data = []
@@ -58,15 +59,10 @@ def send_email_parents():
         unsafe_count = 0
 
         for chat in data:
-            print("hello" + user.id)
             if(child_email in chat._data['participants']):
                 messages = chat.reference.collection("messages").stream()
                 for message in messages:
-                    print(user.id)
-
-                    print(message._data)
-                    if message._data['censor'] == "UNSAFE" and message._data['senderId'] == user.id:
-                        print("here")
+                    if message._data['censor'] == "UNSAFE" and message._data['senderId'] == user.id and message._data['timestamp'] < previous_day_8am:
                         unsafe_count+=1
 
         if unsafe_count > 0:
