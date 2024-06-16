@@ -26,7 +26,7 @@ def scheduled_job():
     print(f"Job executed at {datetime.now()}")
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(scheduled_job, CronTrigger(hour=17, minute=45))  # Run every day at 8:00 AM
+scheduler.add_job(scheduled_job, CronTrigger(hour=8, minute=0)) 
 scheduler.start()
 
 class TextRequest(BaseModel):
