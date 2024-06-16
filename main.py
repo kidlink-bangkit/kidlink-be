@@ -20,9 +20,9 @@ class TextRequest(BaseModel):
 @app.post("/predict")
 def predict(request:TextRequest):
     try:
-        model = load_model("model.h5")
+        model = load_model("model_capstone_2.h5")
         prediction = model.predict(preprocess_text(request.text))[0][0]
-        class_label = "badword" if prediction >= 0.56 else "goodword"
+        class_label = "badword" if prediction >= 0.982 else "goodword"
         return {"class_label": class_label}
     except Exception as e:
         print(e)
