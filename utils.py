@@ -39,18 +39,18 @@ def get_html(unsafe_words, username, child_email):
 
 
 
-def preprocess_sentence(sentence):
-    sentence = re.sub(r"(?:\@|https?\://)\S+", "", sentence)
-    sentence = re.sub(r"http\S+", "", sentence)
-    sentence = re.sub(r"<[^>]+>", "", sentence, flags=re.IGNORECASE)
-    sentence = re.sub('\n', '', sentence)
-    sentence = re.sub('RT', '', sentence)
-    sentence = re.sub("[^a-zA-Z^']", " ", sentence)
-    sentence = re.sub(" {2,}", " ", sentence)
-    sentence = sentence.strip()
-    sentence = re.sub(r'\s+', ' ', sentence)
-    sentence = sentence.lower()
-    return sentence
+def preprocess_sentence(data):
+    data = re.sub(r"(?:\@|https?\://)\S+", "", data)
+    data = re.sub(r"http\S+", "", data)
+    data = re.sub(r"<[^>]+>", "", data, flags=re.IGNORECASE)
+    data = re.sub('\n', '', data)
+    data = re.sub('RT', '', data)
+    data = re.sub("[^a-zA-Z^']", " ", data)
+    data = re.sub(" {2,}", " ", data)
+    data = data.strip()
+    data = re.sub(r'\s+', ' ', data)
+    data = data.lower()
+    return data
 
 # Remove slang words
 def remove_slang(data):
@@ -68,7 +68,7 @@ def remove_stop_words(data):
 
 def preprocess_text(sentence):
     max_len = 100
-    tokenizer = load_pickle("tokenizer.pkl")
+    tokenizer = load_pickle("tokenizer_2.pickle")
     processed_sentence = preprocess_sentence(sentence)
     tokenized_sentence = nltk.word_tokenize(processed_sentence)
     stemmed_sentence = ' '.join(stemming(tokenized_sentence))
