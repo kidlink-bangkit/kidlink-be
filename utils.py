@@ -134,11 +134,10 @@ def download_stopwords():
 
 
 def send_mail(receiver,unsafe_count, username, child_email):
-    # Email configuration
     smtp_server = "smtp.gmail.com"
     smtp_port = 587
     sender_email = "elbertmarcellinus@gmail.com"
-    password = "ydyb qmmh wksl qdex"  # For security, use an app password
+    password = "ydyb qmmh wksl qdex" 
 
     # Create the email
     msg = MIMEMultipart("alternative")
