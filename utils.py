@@ -19,7 +19,6 @@ from io import StringIO
 import pickle
 import os
 from nltk.corpus import stopwords
-from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 def preprocess_sentence(data):

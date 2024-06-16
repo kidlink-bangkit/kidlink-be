@@ -1,12 +1,12 @@
 from fastapi import FastAPI
-import pandas as pd
 import ssl
 import nltk
 from tensorflow.keras.models import load_model
-from utils import preprocess_text, download_stopwords
+from utils import preprocess_text
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
+print("Downloading NLTK")
 nltk.download("punkt")
 nltk.download("stopwords")
 app = FastAPI()
